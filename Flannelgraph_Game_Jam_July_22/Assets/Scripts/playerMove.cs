@@ -58,7 +58,10 @@ public class playerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Vector3 cameraPos = transform.position;
+        cameraPos.y += 2;
+        cameraPos.z = -10;
+        Camera.main.transform.position = cameraPos;
     }
 
     void FixedUpdate()
