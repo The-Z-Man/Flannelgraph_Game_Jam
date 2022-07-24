@@ -2,21 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerHurt : MonoBehaviour
+public class PlayerHealth : MonoBehaviour
 {
+    public int Health = 100;
+
     private PlayerCheckpoint pc;
-    
+
     // Start is called before the first frame update
     void Start()
     {
         pc = GetComponent<PlayerCheckpoint>();
     }
 
-    public void OnTriggerEnter2D(Collider2D collision)
+    // Update is called once per frame
+    void Update()
     {
-        if(collision.tag == "Hazard")
+        if (Health == 0)
         {
             transform.position = pc.GetCheckpoint().transform.position;
+            Health = 100;
         }
+        
     }
+
 }
